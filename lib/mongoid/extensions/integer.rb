@@ -41,6 +41,20 @@ module Mongoid
 
       module ClassMethods
 
+        # Convert the object from its mongo friendly ruby type to this type.
+        #
+        # @example Demongoize the object.
+        #   BigDecimal.demongoize(object)
+        #
+        # @param [ Object ] object The object to demongoize.
+        #
+        # @return [ Integer ] The object.
+        #
+        # @since 3.0.0
+        def demongoize(object)
+          object.try(:to_i)
+        end
+
         # Turn the object from the ruby type we deal with to a Mongo friendly
         # type.
         #
